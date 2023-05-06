@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="./css/bootstrap.css" />
+		<link rel="stylesheet" href="./css/bootstrap-icons.css" />
+		<!-- <link rel="stylesheet" type="text/css" href="./lib/bootstrap-4.1.1/css/bootstrap.min.css"> -->
+		<link rel="stylesheet" type="text/css" href="./lib/bootstrap-3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="./css/set.css">
+		<script src="./js/bootstrap.bundle.js"></script>
+		<title></title>
+		<style>
+			/* body{ */
+			/* background-color: skyblue; */
+			/* background-color: black; */
+
+			/* display: flex;
+				justify-content: center;
+				align-items: center; */
+
+		/* 	background: url(./images/body_bg.jpg) fixed;
+				background-size: cover; */
+			/* }
+			 
+			 
+			 */
+
+			body {
+				margin: 0;
+				padding: 0;
+				--background-color: lightblue;
+				background-color: var(--background-color);
+
+				/* --background-image: url(./images/);
+				background-color: var(--background-color); */
+				/* 	--color:black;
+				color: var(--color); */
+				/* background:black; */
+			}
+
+			.dark {
+				--background-color: black;
+				--color: white;
+
+			}
+
+			#qiu {
+				width: 100vw;
+				height: 80px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.bounceball {
+				width: 40px;
+				height: 40px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+
+			}
+
+			.ball {
+				width: 30px;
+				height: 30px;
+				border-radius: 50%;
+				background: linear-gradient(#e55, #b00);
+				animation: move 500ms infinite alternate;
+				font-size: 20px;
+				text-align: center;
+				color: white;
+			}
+
+			@keyframes move {
+				from {
+					transform: translateY(0);
+				}
+
+				to {
+					transform: translateY(-20px);
+				}
+			}
+
+			.shadow {
+				margin-top: -3px;
+				width: 15px;
+				height: 4px;
+				border-radius: 100%;
+				background: #000;
+				animation: shadowmove 500ms infinite alternate;
+			}
+
+			@keyframes shadowmove {
+				from {
+					opacity: .2;
+					transform: scale(0.25);
+				}
+
+				to {
+					opacity: .5;
+					transform: scale(1);
+				}
+			}
+
+			.red {
+				background: linear-gradient(#e55, #b00);
+			}
+
+			.green {
+				background: linear-gradient(rgb(161, 201, 128), rgb(1, 99, 37));
+			}
+
+
+			.blue {
+				background: linear-gradient(#00a8ff, #8c7ae6);
+			}
+
+			.gball .ball,
+			.gball .shadow {
+				animation-delay: 100ms;
+			}
+
+			.bball .ball,
+			.bball .shadow {
+				animation-delay: 200ms;
+			}
+
+
+
+
+
+			#switch {
+				width: 80px;
+
+				position: fixed;
+				left: 0;
+				bottom: 0;
+			}
+
+			.switch-input {
+				display: none;
+			}
+
+			.switch-label {
+				display: block;
+				width: 80px;
+				height: 40px;
+				border: 2px solid #ccc;
+				border-radius: 20px;
+				padding: 2px;
+				box-sizing: border-box;
+			}
+
+			.switch-label::after {
+				display: block;
+				content: "";
+				width: 50%;
+				height: 100%;
+				position: relative;
+				left: 0;
+				background-color: grey;
+				border-radius: 30px;
+				transition: all .2s ease-in;
+			}
+
+			.switch-input:checked+.switch-label::after {
+				left: 50%
+			}
+
+			.searchBar {
+				width: 60px;
+				height: 60px;
+				background-color: #fff;
+				box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+				border-radius: 60px;
+				position: relative;
+				overflow: hidden;
+				transition: .5s;
+				position: fixed;
+				top: 100px;
+				left: 500px;
+			}
+
+			.searchBar:hover {
+				width: 400px;
+			}
+
+			/* .changeWidth{
+				width: 400px;
+			} */
+
+			.icon {
+				width: 60px;
+				height: 60px;
+				background-color: #fff;
+				/* background: url(./images/look.jpg) no-repeat fixed center; */
+				/* box-shadow: 0 0  10px rgba( 0, 0, 0, .4); */
+				border-radius: 60px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+			}
+
+			.icon img {
+				width: 100%;
+				height: 100%;
+			}
+
+			/* .icon::before{
+				content: "";
+				width: 15px;
+				height: 15px;
+				border-radius: 50%;
+				border: 3px ;
+				
+			} */
+			.textInput {
+				width: 320px;
+				height: 60px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background-color: blue;
+				position: absolute;
+				top: 0;
+				left: 60px;
+			}
+
+			.textInput input {
+				width: 100%;
+				height: 100%;
+				border: 0;
+				outline: none;
+				font-size: 18px;
+			}
+
+			.clear {
+				width: 15px;
+				height: 15px;
+				position: absolute;
+				right: 22%;
+				top: 50%;
+				transform: translateY(-50%);
+				cursor: pointer;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+			}
+
+			.clear::before {
+				content: "";
+				width: 1px;
+				height: 15px;
+				background-color: #999;
+				transform: rotate(45deg);
+				position: absolute;
+			}
+
+			.clear::after {
+				content: "";
+				width: 1px;
+				height: 15px;
+				background-color: #999;
+				transform: rotate(315deg);
+			}
+
+			#btn2 {
+				width: 12%;
+				height: 60%;
+				position: absolute;
+				top: 20%;
+				right: 0;
+				border-radius: 20px;
+				color: #fff;
+				box-shadow: 0 0 2px rgba(0, 0, 0, .4);
+				background: linear-gradient(skyblue, deepskyblue);
+			}
+
+			#btn2:hover {
+				cursor: pointer;
+				background: #ccc;
+			}
+
+			/* form {
+				margin: 50px auto;
+				width: 300px;
+				background-color: lightblue;
+				text-align: center;
+			} */
+			/* .update {
+				outline: none;
+				border: 0px;
+			} */
+			/* body{ */
+			/* background: 100vh,100vw; */
+			/* background-color: skyblue; */
+
+			/* background: url(./images/body_bg.jpg) fixed; */
+
+
+			/* background-attachment: fixed; */
+
+
+			/* background-size: cover; */
+
+
+			/* background-repeat: repeat-y; */
+			/* } */
+
+			ul {
+
+				/* width: 1600px; */
+				display: flex;
+				background-color: #f5f5f6;
+			}
+
+			li {
+				/* display: block; */
+				width: 25px;
+				height: 25px;
+				border-radius: 5px;
+				text-align: center;
+				line-height: 25px;
+				margin: 10px;
+				color: #4e6ef2;
+				background-color: #fff;
+				font-size: 5px;
+			}
+
+			li.active,
+			li:hover {
+				background-color: #4e6ef2;
+				color: white;
+			}
+
+			.imgactive {
+				width: 250px;
+				/* display: block; */
+			}
+			td{
+				color: white;
+			}
+			#listcount{
+				position: fixed;
+				top: 700px;
+				left: 10px;
+			}
+			select{
+				position:fixed;
+				top: 650px;
+				left: 10px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<!-- <canvas>
+			
+		</canvas> -->
+		<!-- <script src="js/snow.js"></script> -->
+		<div id="switch">
+			<input type="checkbox" class="switch-input" name="" id="switch-input">
+			<label for="switch-input" class="switch-label"></label>
+		</div>
+
+		<script>
+			document.querySelector("#switch-input").addEventListener("click", () => {
+				document.body.classList.toggle("dark")
+				// cout.style.color="white"
+				// draw()
+			})
+		</script>
+		
+		<div id="qiu">
+			<div class="bounceball">
+				<div class="ball red"> 电</div>
+				<div class="shadow"></div>
+			</div>
+			<div class="bounceball gball">
+				<div class="ball green">话</div>
+				<div class="shadow"></div>
+			</div>
+			<div class="bounceball bball">
+				<div class="ball blue">本</div>
+				<div class="shadow"></div>
+			</div>
+		
+		</div>
+	<!-- 	<span id="come">
+			
+		</span> -->
+		
+
+		<!-- <form action="user/reg" method="post"> -->
+		<!-- <h2>添加</h2> -->
+		<!-- 用户名:<input type="text" id="uname" name="uname"><br> -->
+		<!-- 	密码:<input type="password" id="pwd" name="pwd"><br>
+			确认密码: <input type="password" id="repwd" name="repwd"> <br> -->
+		<!-- 性别:<input type="text" id="sex" name="sex" value=""><br> -->
+		<!-- 性别:男<input type="radio" id="" name="sex" value="1">
+			     女<input type="radio" id="" name="sex" value="0"><br> -->
+		<!-- 	年龄: <input type="text" id="age" name="age"><br>
+			电话: <input type="text" id="phone" name="phone" maxlength="11"><span id="pmsg"></span><br>
+			邮箱: <input type="text" id="email" name="email" maxlength="20"><span id="emsg"></span><br> -->
+		<!-- <input type="submit" id="btn" value="添加" > -->
+		<hr>
+		<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#add">添加</button><br><br>
+
+
+		<!-- 	<input type="text" class="form-control" id="searchname" placeholder="" style="width:200px">&nbsp;<br>
+		<button type="button" id="btn2" class="btn btn-secondary">查询</button><br><br> -->
+
+		<!--搜索康 ************************************************************************** -->
+		<div class="searchBar ms-5 mb-5">
+			<div class="icon">
+				<img src="./images/look.jpg" alt="">
+			</div>
+			<div class="textInput">
+				<input type="text" placeholder="请输入想查询的数据..." id="searchname">
+				<input type="submit" value="go" id="btn2">
+				<div class="clear"></div>
+			</div>
+		</div>
+
+		<script>
+			let oSearchBar = document.querySelector('.searchBar')
+			let oIcon = document.querySelector('.icon')
+			let oClear = document.querySelector('.clear')
+			let oText = document.querySelector('#searchname')
+			// oIcon.addEventListener('click',()=>{
+			// 	oSearchBar.classList.toggle('changeWidth')
+			// })
+			oClear.addEventListener('click', () => {
+				oText.value = "";
+			})
+		</script>
+
+
+		<!-- <input type="submit" id="btn2" value="查询"> -->
+		<div class="container">
+			<table class="table table-striped" id="cont">
+
+
+
+			</table>
+		</div>
+		<!-- <hr> -->
+
+		<!--分页 ******************************************************8 -->
+		<!-- <form class="" method="get" action="/info"> -->
+
+		<!-- <script type="text/javascript" language="javascript" src="./js/bootstrapPager.js"></script>
+		<div class="float-end me-5" id="fenye"> -->
+
+		<!-- <h4>Demo2:</h4> -->
+		<!-- <script>
+				document.write(Pager({
+					totalCount: 150, //总条数为150
+					pageSize: 5, //每页显示6条内容，默认10
+					buttonSize: 3, //显示6个按钮，默认10
+					pageParam: 'p', //页码的参数名为'p'，默认为'page'
+					className: 'pagination', //分页的样式
+					prevButton: '上一页', //上一页按钮
+					nextButton: '下一页', //下一页按钮
+					firstButton: '首页', //第一页按钮
+					lastButton: '末页', //最后一页按钮
+
+				}));
+				console.log(Pager.getParam('p'));
+			</script> -->
+		<!-- // function Pager(options);
+				// console.log(Pager.getSize('1')); -->
+
+		<select name="" id="count">
+			<option value="5">5</option>
+			<option value="10">10</option>
+		</select>
+		<ul id="listcount">
+			<!-- <li>1</li>
+			      <li>2</li>
+			      <li>3</li>
+			      <li>4</li> -->
+		</ul>
+
+
+
+		</div>
+		<!-- </form> -->
+
+
+		<!--分页end ******************************************************8 -->
+
+
+		<!-- boot弹出框****************************************** -->
+
+
+		<!-- <button type="button" class="btn btn-primary" >修改</button> -->
+		<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" >修改</button> -->
+		<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">删除</button> -->
+
+		<!-- aria-labelledby="exampleModalLabel" aria-hidden="true"    data-bs-whatever="@fat" -->
+
+		<div class="modal fade" id="add" tabindex="-1">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1 class="modal-title fs-5" id="exampleModalLabel">添加联系人</h1>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="mb-3">
+								<label for="recipient-name" class="col-form-label">用户名:</label>
+								<input type="text" class="form-control" id="uname" placeholder="" autofocus>
+							</div>
+							<div class="mb-3">
+								<label for="message-text" class="col-form-label">性别</label>
+								<input type="text" class="form-control" id="sex" placeholder="">
+							</div>
+							<div class="mb-3">
+								<label for="recipient-name" class="col-form-label">年龄:</label>
+								<input type="text" class="form-control" id="age" placeholder="">
+							</div>
+							<div class="mb-3">
+								<label for="recipient-name" class="col-form-label">电话:</label><span id="pmsg"></span>
+								<input type="text" class="form-control" id="phone" placeholder="" maxlength="11">
+							</div>
+							<div class="mb-3">
+								<label for="recipient-name" class="col-form-label">邮箱:</label><span id="emsg"></span>
+								<input type="text" class="form-control" id="email" placeholder="" maxlength="20">
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer" id="cont2">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+						<button type="button" id="btn" class="btn btn-primary">确认提交</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<div class="modal fade" id="exampleModal" tabindex="-1">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1 class="modal-title fs-5" id="exampleModalLabel">修改信息</h1>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="mb-3">
+								<label for="recipient-name" class="col-form-label">用户名:</label>
+								<input type="text" class="form-control" id="unameu" placeholder="">
+							</div>
+							<div class="mb-3">
+								<label for="message-text" class="col-form-label">性别</label>
+								<input type="text" class="form-control" id="sexu" placeholder="">
+							</div>
+							<div class="mb-3">
+								<label for="recipient-name" class="col-form-label">年龄:</label>
+								<input type="text" class="form-control" id="ageu" placeholder="">
+							</div>
+							<div class="mb-3">
+								<label for="recipient-name" class="col-form-label">电话:</label>
+								<input type="text" class="form-control" id="phoneu" placeholder="" maxlength="11">
+							</div>
+							<div class="mb-3">
+								<label for="recipient-name" class="col-form-label">邮箱:</label>
+								<input type="text" class="form-control" id="emailu" placeholder="" maxlength="20">
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer" id="upcont">
+						<!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button> -->
+						<!-- <button type="button" class="btn btn-primary">确认修改</button> -->
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--bootend *********************************************************************************************** -->
+
+		<div>
+			<!-- 	用户名:<input type="text" class="update" id="unameu" placeholder=""><br>
+					性别:<input type="text" class="update" id="sexu" placeholder=""><br> -->
+
+			<!-- 性别:男<input type="radio" id="" name="sex" value="1">
+					     女<input type="radio" id="" name="sex" value="0"><br> -->
+
+			<!-- 	年龄: <input type="text" class="update" id="ageu" placeholder="" ><br>
+					电话: <input type="text" class="update" id="phoneu" placeholder="" maxlength="11"><br>
+					邮箱: <input type="text" class="update" id="emailu"  placeholder="" maxlength="20"></span><br> -->
+			<!-- <table id="cont2"> -->
+
+			<!-- </table> -->
+		</div>
+
+		<!-- </form> -->
+		<br><br><br><br><br>
+		<br><br><br><br><br>
+
+
+
+
+		<!-- <td><input type="checkbox"></td> -->
+
+
+		<script src="js/ajax.js"></script>
+		<script>
+			// console.log(count.value);
+			//  首次数据    ******************************************************************************
+			get(
+				'GET',
+				'/info/search', {
+					uname: "",
+					yema: 1,
+					count: count.value
+					// pwd:pwd.value,
+					// sex:sex.value,
+					// age:age.value,
+					// phone:phone.value,
+					// email:email.value
+				},
+				function(res) {
+					q = Math.ceil(res[1][0].total / count.value);
+
+					for (var s = '', i = 0; i < q; i++) {
+						s += `<li onclick="fy(${i+1})">${i+1}</li>`
+					}
+					// console.log(s);
+					listcount.innerHTML = s
+
+					if (res[0].length > 0) {
+						// alert("succsee")
+						for (i = 0, s = ''; i < res[0].length; i++) {
+							s += `
+							<tr>
+								
+								<td>${i+1}</td>
+								<td>${res[0][i].uname}</td>
+								<td>${res[0][i].sex==1?"男":"女"}</td>
+								<td>${res[0][i].age}</td>
+								<td>${res[0][i].email}</td>
+								<td>${res[0][i].phone}</td>
+								<td>
+									<button type="button" onclick="ud(${res[0][i].iid})" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" >修改</button>
+									<button type="button" onclick="del(${res[0][i].iid})" class="btn btn-danger"  >删除</button>
+								</td>
+							</tr>
+							
+						`
+						}
+
+						// <button onclick="ud(${res[i].iid})">修改</button>
+						// <button onclick="del(${res[i].iid})">删除</button>
+
+						// id="ud"+${res[i].iid} 
+						var s1 = `<tr>
+					<th>序号</th>
+					<th>姓名</th>
+					<th>性别</th>
+					<th>年龄</th>
+					<th>邮箱</th>
+					<th>电话</th>
+					<th>操作</th>
+				</tr>`
+						cont.innerHTML = s1 + s
+						var s2 = `<h1>欢迎来到 ${res[0][0].uname} 电话本!!!</h1>`
+						come.innerHTML = s2
+
+						// window.location.href="login.html"
+					} else {
+						alert("错误")
+					}
+				}
+			)
+
+			//首次数据刷新结束 ******************************************************************
+
+			var b1 = false
+			var b2 = false
+			phone.onblur = function() {
+				if (/^1[3-9]\d{9}$/.test(phone.value)) {
+					pmsg.innerHTML = "success"
+					pmsg.style.color = "green"
+					b1 = true
+				} else {
+					pmsg.innerHTML = "error"
+					pmsg.style.color = "red"
+					b1 = false
+				}
+			}
+			email.onblur = function() {
+				if (/^\w{3,9}@\w{2,3}.com$/.test(email.value)) {
+					emsg.innerHTML = "success"
+					emsg.style.color = "green"
+					b2 = true
+				} else {
+					emsg.innerHTML = "error"
+					emsg.style.color = "red"
+					b2 = false
+				}
+			}
+
+
+			btn.onclick = function() {
+				if (b1 & b2) {
+					post(
+						'POST',
+						'/info/add', {
+							uname: uname.value,
+							// pwd:pwd.value,
+							sex: sex.value = "男" ? 1 : 0,
+							age: age.value,
+							phone: phone.value,
+							email: email.value
+						},
+						function(res) {
+							console.log(res);
+							if (res.code == 200) {
+								alert("succsee")
+								// window.location.href="login.html"
+							} else {
+								alert("错误")
+							}
+						}
+					)
+				} else {
+					alert("数据错误,提交不了")
+				}
+				// console.log(sex.value);
+
+
+				get(
+					'GET',
+					'/info/search', {
+						uname: "",
+						yema: 1,
+						count: count.value
+						// pwd:pwd.value,
+						// sex:sex.value,
+						// age:age.value,
+						// phone:phone.value,
+						// email:email.value
+					},
+					function(res) {
+						q = Math.ceil(res[1][0].total / count.value);
+
+						for (var s = '', i = 0; i < q; i++) {
+							s += `<li onclick="fy(${i+1})">${i+1}</li>`
+						}
+						// console.log(s);
+						listcount.innerHTML = s
+
+						if (res[0].length > 0) {
+							// alert("succsee")
+							for (i = 0, s = ''; i < res[0].length; i++) {
+								s += `
+								<tr>
+									
+									<td>${i+1}</td>
+									<td>${res[0][i].uname}</td>
+									<td>${res[0][i].sex==1?"男":"女"}</td>
+									<td>${res[0][i].age}</td>
+									<td>${res[0][i].email}</td>
+									<td>${res[0][i].phone}</td>
+									<td>
+										<button type="button" onclick="ud(${res[0][i].iid})" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" >修改</button>
+										<button type="button" onclick="del(${res[0][i].iid})" class="btn btn-danger"  >删除</button>
+									</td>
+								</tr>
+								
+							`
+							}
+
+							// <button onclick="ud(${res[i].iid})">修改</button>
+							// <button onclick="del(${res[i].iid})">删除</button>
+
+							// id="ud"+${res[i].iid} 
+							var s1 = `<tr>
+						<th>序号</th>
+						<th>姓名</th>
+						<th>性别</th>
+						<th>年龄</th>
+						<th>邮箱</th>
+						<th>电话</th>
+						<th>操作</th>
+					</tr>`
+							cont.innerHTML = s1 + s
+							var s2 = `<h1>欢迎来到 ${res[0][0].uname} 电话本!!!</h1>`
+							come.innerHTML = s2
+
+							// window.location.href="login.html"
+						} else {
+							alert("错误")
+						}
+					}
+				)
+
+			}
+
+			btn2.onclick = function() {
+				get(
+					'GET',
+					'/info/searchm', {
+						look: searchname.value,
+						yema: 1,
+						count: count.value
+						// phone:searchname.value
+						// pwd:pwd.value,
+						// sex:sex.value,
+						// age:age.value,
+						// phone:phone.value,
+						// email:email.value
+					},
+					function(res) {
+						console.log(res);
+
+						q = Math.ceil(res[1][0].total / count.value);
+
+						for (var s = '', i = 0; i < q; i++) {
+							s += `<li onclick="fy(${i+1})">${i+1}</li>`
+						}
+						// console.log(s);
+						listcount.innerHTML = s
+
+						if (res[0].length > 0) {
+							alert("succsee")
+							for (i = 0, s = ''; i < res[0].length; i++) {
+								s += `
+								<tr>
+									<td>${i+1}</td>
+									<td>${res[0][i].uname}</td>
+									<td>${res[0][i].sex==1?"男":"女"}</td>
+									<td>${res[0][i].age}</td>
+									<td>${res[0][i].email}</td>
+									<td>${res[0][i].phone}</td>
+									<td>
+										<button type="button" onclick="ud(${res[0][i].iid})" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" >修改</button>
+										<button type="button" onclick="del(${res[0][i].iid})" class="btn btn-danger"  >删除</button>
+									</td>
+								</tr>
+								
+							`
+							}
+
+							// <button onclick="ud(${res[i].iid})">修改</button>
+							// <button onclick="del(${res[i].iid})">删除</button>
+
+							// id="ud"+${res[i].iid} 
+							var s1 = `<tr>
+						<th>序号</th>
+						<th>姓名</th>
+						<th>性别</th>
+						<th>年龄</th>
+						<th>邮箱</th>
+						<th>电话</th>
+						<th>操作</th>
+					</tr>`
+							cont.innerHTML = s1 + s
+							// window.location.href="login.html"
+						} else {
+							alert("错误")
+						}
+					}
+				)
+			}
+
+			function del(s) {
+				get(
+					'DELETE',
+					'/info/delete', {
+						iid: s
+						// uname:uname.value,
+						// // pwd:pwd.value,
+						// sex:sex.value,
+						// age:age.value,
+						// phone:phone.value,
+						// email:email.value
+					},
+					function(res) {
+						// console.log(res);
+						if (res.code == 200) {
+							alert("succsee")
+							// window.location.href="login.html"
+						} else {
+							alert("错误")
+						}
+					}
+				);
+				get(
+					'GET',
+					'/info/search', {
+						uname: searchname.value,
+						yema: 1,
+						count: count.value
+						// pwd:pwd.value,
+						// sex:sex.value,
+						// age:age.value,
+						// phone:phone.value,
+						// email:email.value
+					},
+					function(res) {
+						q = Math.ceil(res[1][0].total / count.value);
+
+						for (var s = '', i = 0; i < q; i++) {
+							s += `<li onclick="fy(${i+1})">${i+1}</li>`
+						}
+						// console.log(s);
+						listcount.innerHTML = s
+
+						if (res[0].length > 0) {
+							// alert("succsee")
+							for (i = 0, s = ''; i < res[0].length; i++) {
+								s += `
+								<tr>
+									
+									<td>${i+1}</td>
+									<td>${res[0][i].uname}</td>
+									<td>${res[0][i].sex==1?"男":"女"}</td>
+									<td>${res[0][i].age}</td>
+									<td>${res[0][i].email}</td>
+									<td>${res[0][i].phone}</td>
+									<td>
+										<button type="button" onclick="ud(${res[0][i].iid})" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" >修改</button>
+										<button type="button" onclick="del(${res[0][i].iid})" class="btn btn-danger"  >删除</button>
+									</td>
+								</tr>
+								
+							`
+							}
+
+							// <button onclick="ud(${res[i].iid})">修改</button>
+							// <button onclick="del(${res[i].iid})">删除</button>
+
+							// id="ud"+${res[i].iid} 
+							var s1 = `<tr>
+						<th>序号</th>
+						<th>姓名</th>
+						<th>性别</th>
+						<th>年龄</th>
+						<th>邮箱</th>
+						<th>电话</th>
+						<th>操作</th>
+					</tr>`
+							cont.innerHTML = s1 + s
+							var s2 = `<h1>欢迎来到 ${res[0][0].uname} 电话本!!!</h1>`
+							come.innerHTML = s2
+
+							// window.location.href="login.html"
+						} else {
+							alert("错误")
+						}
+					}
+				)
+
+			}
+
+			function ud(s) {
+				get(
+					'GET',
+					'/info/searchi', {
+						iid: s
+						// pwd:pwd.value,
+						// sex:sex.value,
+						// age:age.value,
+						// phone:phone.value,
+						// email:email.value
+					},
+					function(res) {
+						// console.log(res);
+						if (res.length > 0) {
+							// alert("succsee")
+							// for(i=0,s='';i<res.length;i++){
+							// 	s+=`
+							// 		<tr>
+							// 			<td>${i+1}</td>
+							// 			<td>${res[i].uname}</td>
+							// 			<td>${res[i].sex==1?"男":"女"}</td>
+							// 			<td>${res[i].age}</td>
+							// 			<td>${res[i].email}</td>
+							// 			<td>${res[i].phone}</td>
+							// 		</tr>
+							// 	`
+							// }
+							var s = `
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+						<button type="button" class="btn btn-primary" onclick="zud(${res[0].iid})">确认修改</button>`
+							upcont.innerHTML = s
+							// <button type="button" class="btn btn-primary">确认修改</button>
+
+							unameu.placeholder = res[0].uname;
+
+							// if(res[0].sex==1){
+							// 	res[0].sex="男"
+							// 	console.log(res[0].sex);
+							// }else{
+							// 	res[0].sex="女"
+							// }
+
+							(res[0].sex == 1) ? (res[0].sex = "男") : (res[0].sex = "女")
+							// console.log(res[0].sex);
+							sexu.placeholder = res[0].sex
+
+							ageu.placeholder = res[0].age
+							phoneu.placeholder = res[0].phone
+							emailu.placeholder = res[0].email
+
+							// window.location.href="login.html"
+						} else {
+							alert("错误")
+						}
+					}
+				)
+			}
+
+			function zud(s) {
+				post(
+					'PUT',
+					'/info/update', {
+						// pwd:pwd.value,
+						uname: unameu.value == "" ? unameu.value = unameu.placeholder : uanmeu.value = unameu.value,
+						sex: sexu.value == "" ? sexu.value = sexu.placeholder : sexu.value = (sexu.value == "男" ? sexu.value = 1 :
+							sexu.value = 0),
+						age: ageu.value == "" ? ageu.value = ageu.placeholder : ageu.value = ageu.value,
+						phone: phoneu.value == "" ? phoneu.value = phoneu.placeholder : phoneu.value = phoneu.value,
+						email: emailu.value == "" ? emailu.value = emailu.placeholder : emailu.value = emailu.value,
+						prename: unameu.placeholder,
+						iid: s
+
+					},
+					function(res) {
+						// console.log(res);
+						if (res.code == 200) {
+							alert("succsee")
+							// window.location.href="login.html"
+						} else {
+							alert("错误")
+						}
+					}
+				)
+			}
+
+			function fy(s1) {
+				console.log(s1);
+				get(
+					'GET',
+					'/info/search', {
+						uname: searchname.value,
+						yema: s1,
+						count: count.value
+					},
+					function(res) {
+						console.log(res);
+						// console.log(s1);
+						if (res[0].length > 0) {
+							for (i = 0, s = ''; i < res[0].length; i++) {
+								s += `
+								<tr>
+									<td>${(i+1)}</td>
+									<td>${res[0][i].uname}</td>
+									<td>${res[0][i].sex==1?"男":"女"}</td>
+									<td>${res[0][i].age}</td>
+									<td>${res[0][i].email}</td>
+									<td>${res[0][i].phone}</td>
+									<td>
+										<button type="button" onclick="ud(${res[0][i].iid})" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" >修改</button>
+										<button type="button" onclick="del(${res[0][i].iid})" class="btn btn-danger"  >删除</button>
+									</td>
+								</tr>
+								
+							`
+							}
+							var s1 = `<tr>
+							<th>序号</th>
+							<th>姓名</th>
+							<th>性别</th>
+							<th>年龄</th>
+							<th>邮箱</th>
+							<th>电话</th>
+							<th>操作</th>
+						</tr>`
+							cont.innerHTML = s1 + s
+						} else {
+							alert("错误")
+						}
+					}
+				)
+
+			}
+		</script>
+
+		<script>
+			;
+			// for(var s='',i=0;i<res[1].total;i++){
+			//   s+=`<li>${i+1}</li>`
+			// }
+		</script>
+		<script>
+			const items = document.querySelectorAll("ul>li");
+			// console.log(items);
+			items.forEach(
+				(item) =>
+				(item.onclick = function() {
+					items.forEach((item) => item.classList.remove("active"));
+					this.classList.add("active");
+					console.log(this);
+					// const list = document.querySelectorAll("img");
+
+
+				})
+			);
+		</script>
+	</body>
+</html>

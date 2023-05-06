@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#qiu{
+				width: 100px;
+				height: 100px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.bounceball {
+				width: 30px;
+				height: 30px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+
+			}
+
+			.ball {
+				width: 20px;
+				height: 20px;
+				border-radius: 50%;
+				background: linear-gradient(#e55, #b00);
+				animation: move 500ms infinite alternate;
+				font-size: 15px;
+				text-align: center;
+			}
+
+			@keyframes move {
+				from {
+					transform: translateY(0);
+				}
+
+				to {
+					transform: translateY(-20px);
+				}
+			}
+
+			.shadow {
+				margin-top: -3px;
+				width: 15px;
+				height: 4px;
+				border-radius: 100%;
+				background: #000;
+				animation: shadowmove 500ms infinite alternate;
+			}
+
+			@keyframes shadowmove {
+				from {
+					opacity: .2;
+					transform: scale(0.25);
+				}
+
+				to {
+					opacity: .5;
+					transform: scale(1);
+				}
+			}
+
+			.red {
+				background: linear-gradient(#e55, #b00);
+			}
+
+			.green {
+				background: linear-gradient(rgb(161, 201, 128), rgb(1, 99, 37));
+			}
+			
+
+			.blue {
+				background: linear-gradient(#00a8ff,#8c7ae6);
+			}
+			.gball .ball,.gball .shadow{
+				animation-delay: 100ms;
+			}
+			.bball .ball,.bball .shadow{
+				animation-delay: 200ms;
+			}
+			
+
+		
+		</style>
+	</head>
+	<body>
+		<div id="qiu">
+			<div class="bounceball">
+				<div class="ball red"> 电</div>
+				<div class="shadow"></div>
+			</div>
+			<div class="bounceball gball">
+				<div class="ball green">话</div>
+				<div class="shadow"></div>
+			</div>
+			<div class="bounceball bball">
+				<div class="ball blue">本</div>
+				<div class="shadow"></div>
+			</div>
+		</div>
+		
+	</body>
+</html>

@@ -1,0 +1,21 @@
+*{box-sizing: border-box;}
+    body{
+      margin: 0;
+    }
+    html{
+      color: #333;
+      font-size: 16px;
+    }
+    img{
+      display: block;
+    }
+    ul,li,h1,h2,h3,h4,h5,h6,p{
+      margin: 0;
+      padding: 0;
+    }
+    ul{
+      list-style: none;
+    }
+    table{
+      border-collapse: collapse;
+    }
